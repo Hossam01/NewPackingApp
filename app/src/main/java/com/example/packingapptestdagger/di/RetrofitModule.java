@@ -20,7 +20,7 @@ public class RetrofitModule {
     @Singleton
     public static ApiService providePokemonApiService(){
         return new Retrofit.Builder()
-                .baseUrl("http://192.168.1.44/")
+                .baseUrl("https://hf-android-app.s3-eu-west-1.amazonaws.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()

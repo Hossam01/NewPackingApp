@@ -1,15 +1,12 @@
 package com.example.packingapptestdagger.Database;
 
-import android.content.Context;
-
 import androidx.room.Database;
-import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.packingapptestdagger.Model.User;
+import com.example.packingapptestdagger.Model.Response;
 
 
-@Database(entities = {User.class}, version = 1, exportSchema = false)
+@Database(entities = {Response.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
 

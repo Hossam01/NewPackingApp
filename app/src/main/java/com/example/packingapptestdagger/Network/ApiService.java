@@ -1,15 +1,15 @@
 package com.example.packingapptestdagger.Network;
 
-import com.example.packingapptestdagger.Model.UserResponse;
+import com.example.packingapptestdagger.Model.Response;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.rxjava3.core.Observable;
-import retrofit2.http.Body;
-import retrofit2.http.POST;
+import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @POST("Packing_Api/Login/Auth.php")
-    Observable<UserResponse> getPokemons(@Body Map<String, String> mobile);
+    @GET("android-test/recipes.json")
+    Observable<ArrayList<Response>> getPokemons();
 }

@@ -3,8 +3,7 @@ package com.example.packingapptestdagger.repository;
 import androidx.lifecycle.LiveData;
 
 import com.example.packingapptestdagger.Database.UserDao;
-import com.example.packingapptestdagger.Model.User;
-import com.example.packingapptestdagger.Model.UserResponse;
+import com.example.packingapptestdagger.Model.Response;
 import com.example.packingapptestdagger.Network.ApiService;
 
 import java.util.ArrayList;
@@ -26,16 +25,14 @@ public class Repository {
     }
 
 
-    public Observable<UserResponse> getPokemons(String name, String Password){
-        HashMap<String, String> map = new HashMap<>();
-        map.put("username", name);
-        map.put("password", Password);
-        return pokemonApiService.getPokemons(map);
+    public Observable<ArrayList<Response>> getPokemons(){
+
+        return pokemonApiService.getPokemons();
     }
-    public void insertPokemon(User pokemon){
+    public void insertPokemon(List<Response> pokemon){
         userDao.insertUser(pokemon);
     }
-    public void deletePokemon(User user){
+    public void deletePokemon(Response user){
         userDao.delete(user);
     }
 
@@ -43,7 +40,7 @@ public class Repository {
         userDao.deleteAll();
     }
 
-    public LiveData<List<User>> getFavoritePokemon(){
+    public LiveData<List<Response>> getFavoritePokemon(){
         return userDao.getAll();
     }
 
